@@ -48,7 +48,7 @@ export default function AdminLayout({ children }) {
         `}
       >
         {/* Top bar */}
-        <header className="sticky top-0 z-30 h-16 bg-[#14100b]/80 backdrop-blur-xl border-b border-[#3d2a1a]/40 flex items-center justify-between px-6">
+        <header className="sticky top-0 z-30 h-16 bg-[#14100b]/80 backdrop-blur-xl border-b border-[#3d2a1a]/40 flex items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
             {/* Mobile hamburger */}
             <button
@@ -64,9 +64,9 @@ export default function AdminLayout({ children }) {
             </h1>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-terracotta to-terracottaDark flex items-center justify-center text-cream text-xs font-bold">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-terracotta to-terracottaDark flex items-center justify-center text-cream text-xs font-bold shrink-0">
                 {user?.name?.charAt(0)?.toUpperCase() || "A"}
               </div>
               <div className="hidden sm:block">
@@ -79,7 +79,7 @@ export default function AdminLayout({ children }) {
                 logout();
                 router.push("/login");
               }}
-              className="text-xs font-medium text-[#a89278] hover:text-red-400 transition-colors px-3 py-1.5 rounded-lg hover:bg-red-500/10"
+              className="text-xs font-medium text-[#a89278] hover:text-red-400 transition-colors px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-red-500/10"
             >
               Logout
             </button>
@@ -87,7 +87,7 @@ export default function AdminLayout({ children }) {
         </header>
 
         {/* Page content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {children}
         </div>
       </div>

@@ -72,13 +72,13 @@ export default function AdminTable({
               {columns.map((col, i) => (
                 <th
                   key={i}
-                  className="text-left text-xs font-semibold uppercase tracking-wider text-[#a89278] px-5 py-3.5"
+                  className="text-left text-xs font-semibold uppercase tracking-wider text-[#a89278] px-3 sm:px-5 py-3 sm:py-3.5 whitespace-nowrap"
                 >
                   {col.label}
                 </th>
               ))}
               {actions && (
-                <th className="text-right text-xs font-semibold uppercase tracking-wider text-[#a89278] px-5 py-3.5">
+                <th className="text-right text-xs font-semibold uppercase tracking-wider text-[#a89278] px-3 sm:px-5 py-3 sm:py-3.5 whitespace-nowrap">
                   Actions
                 </th>
               )}
@@ -97,13 +97,13 @@ export default function AdminTable({
                 onClick={() => onRowClick?.(row)}
               >
                 {columns.map((col, j) => (
-                  <td key={j} className="px-5 py-4 text-sm text-cream/90">
+                  <td key={j} className="px-3 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm text-cream/90 whitespace-nowrap sm:whitespace-normal">
                     {col.render ? col.render(row) : row[col.key]}
                   </td>
                 ))}
                 {actions && (
-                  <td className="px-5 py-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
+                  <td className="px-3 sm:px-5 py-3 sm:py-4 text-right">
+                    <div className="flex items-center justify-end gap-1.5 sm:gap-2">
                       {actions(row)}
                     </div>
                   </td>

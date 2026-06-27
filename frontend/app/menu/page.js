@@ -21,22 +21,22 @@ export default function MenuPage() {
   const list = active === "all" ? products : products.filter((p) => p.category === active);
 
   return (
-    <section className="px-6 py-16">
+    <section className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-6xl mx-auto">
         <span className="text-xs uppercase tracking-[2px] text-terracotta font-semibold block mb-2">
           Our menu
         </span>
-        <h2 className="text-2xl md:text-3xl mb-7">Brewed for every mood</h2>
+        <h2 className="text-2xl md:text-3xl mb-6 sm:mb-7">Brewed for every mood</h2>
 
-        <div className="flex gap-2.5 flex-wrap mb-8">
+        <div className="flex gap-2.5 overflow-x-auto pb-3 mb-6 sm:mb-8 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0 flex-nowrap sm:flex-wrap">
           {CATEGORIES.map((c) => (
             <button
               key={c}
               onClick={() => setActive(c)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition shrink-0 ${
                 active === c
-                  ? "bg-coffeeDark text-cream border-coffeeDark"
-                  : "bg-coffee text-tan border-coffeeMid"
+                  ? "bg-coffee text-cream border-tan shadow-md"
+                  : "bg-coffeeDark text-tan border-coffeeMid hover:border-tan"
               }`}
             >
               {c === "all" ? "All" : c.charAt(0).toUpperCase() + c.slice(1)}
@@ -45,7 +45,7 @@ export default function MenuPage() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="bg-coffee border border-coffeeMid rounded-2xl overflow-hidden animate-pulse">
                 <div className="h-36 bg-coffeeMid" />
@@ -61,7 +61,7 @@ export default function MenuPage() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {list.length === 0 ? (
               <p className="col-span-full text-textMuted text-center py-12">No products found</p>
             ) : (

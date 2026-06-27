@@ -112,6 +112,9 @@ export default function AdminSidebar({ collapsed, onToggle }) {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => {
+                  if (window.innerWidth < 1024 && !collapsed) onToggle();
+                }}
                 className={`
                   group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium
                   transition-all duration-200

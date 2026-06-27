@@ -31,7 +31,7 @@ export default function Navbar() {
           : "bg-coffeeDark border-b border-coffee"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <Link href="/" className="font-serif italic font-bold text-2xl text-cream">
           yoto
         </Link>

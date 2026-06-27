@@ -181,7 +181,7 @@ export default function CoffeePage() {
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1 max-w-sm">
+        <div className="relative flex-1 w-full sm:max-w-sm">
           <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#a89278]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
@@ -193,12 +193,12 @@ export default function CoffeePage() {
             className="w-full pl-10 pr-4 py-2.5 text-sm bg-[#1a130d] border border-[#3d2a1a]/60 rounded-xl text-cream placeholder-[#6b5a47] focus:outline-none focus:border-terracotta/50 transition-colors"
           />
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 overflow-x-auto scrollbar-none pb-1 sm:pb-0 flex-nowrap sm:flex-wrap">
           {["all", ...CATEGORIES].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilterCat(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 shrink-0 ${
                 filterCat === cat
                   ? "bg-terracotta/15 border-terracotta/40 text-terracotta"
                   : "bg-[#1a130d] border-[#3d2a1a]/60 text-[#a89278] hover:border-[#a89278]/40"

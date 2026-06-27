@@ -35,8 +35,8 @@ export default function LoginPage() {
   }
 
   return (
-    <section className="px-6 py-16">
-      <div className="max-w-md mx-auto bg-coffee border border-coffeeMid rounded-2xl p-9">
+    <section className="px-4 sm:px-6 py-12 sm:py-16">
+      <div className="max-w-md mx-auto bg-coffee border border-coffeeMid rounded-2xl p-5 sm:p-9">
         <h2 className="text-2xl text-center mb-1.5">
           {mode === "login" ? "Welcome back" : "Create an account"}
         </h2>

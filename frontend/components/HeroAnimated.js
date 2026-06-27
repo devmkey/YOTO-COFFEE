@@ -110,9 +110,9 @@ export default function HeroAnimated() {
       </div>
       <div ref={overlayRef} className="absolute inset-0 bg-coffeeDark/70 -z-10" />
 
-      <div className="relative z-10 w-full flex flex-col justify-center items-start gap-6 md:gap-8 px-8 md:px-20 lg:px-28 py-16 md:py-24">
+      <div className="relative z-10 w-full flex flex-col justify-center items-start gap-6 md:gap-8 px-5 sm:px-10 md:px-20 lg:px-28 py-16 md:py-24">
         {/* Heading — two lines, one word per line */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.95] font-serif text-cream hero-heading flex flex-col items-start shrink-0">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] font-serif text-cream hero-heading flex flex-col items-start shrink-0">
           {headingWords.map((word, wIndex) => (
             <span key={wIndex} className="overflow-hidden block">
               {word.split("").map((char, cIndex) => (
@@ -129,26 +129,26 @@ export default function HeroAnimated() {
         </h1>
 
         {/* Supporting content — divider, paragraph, buttons */}
-        <div className="flex flex-col md:pt-4">
+        <div className="flex flex-col md:pt-4 w-full sm:w-auto">
           <div className="w-16 h-[2px] bg-[#c8a46b] mb-6" />
 
           <p
             ref={paragraphRef}
-            className="text-[#E2D3BB] max-w-md mb-6 text-lg leading-relaxed"
+            className="text-[#E2D3BB] max-w-md mb-6 text-base sm:text-lg leading-relaxed"
             style={{ opacity: 0 }}
           >
             Yoto is a neighbourhood coffee house serving honest espresso,
             slow-brewed coffee and fresh pastries — made for lingering.
           </p>
 
-          <div className="flex gap-3 flex-wrap">
-            <div className="hero-btn" style={{ opacity: 0 }}>
-              <Button href="/menu" variant="secondary">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <div className="hero-btn w-full sm:w-auto" style={{ opacity: 0 }}>
+              <Button href="/menu" variant="secondary" className="w-full sm:w-auto justify-center">
                 View menu
               </Button>
             </div>
-            <div className="hero-btn" style={{ opacity: 0 }}>
-              <Button href="/contact" variant="outlineLight">
+            <div className="hero-btn w-full sm:w-auto" style={{ opacity: 0 }}>
+              <Button href="/contact" variant="outlineLight" className="w-full sm:w-auto justify-center">
                 Find us
               </Button>
             </div>

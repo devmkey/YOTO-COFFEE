@@ -34,8 +34,8 @@ export default function AnimatedCards() {
   );
 
   return (
-    <section ref={sectionRef} className="px-6 -mt-8 relative">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+    <section ref={sectionRef} className="px-4 sm:px-6 -mt-6 sm:-mt-8 relative">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3.5 md:gap-4">
         <div className="info-card">
           <Card icon={<ClockIcon className="w-6 h-6" />} title="Opening hours">
             Mon–Fri 7:00–19:00<br />Sat–Sun 8:00–18:00

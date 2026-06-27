@@ -37,7 +37,7 @@ export default function AdminModal({ open, onClose, title, children, size = "md"
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-admin-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-admin-fade-in"
       onClick={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
@@ -54,12 +54,12 @@ export default function AdminModal({ open, onClose, title, children, size = "md"
           border border-[#3d2a1a]/60
           rounded-2xl shadow-2xl shadow-black/40
           animate-admin-slide-up
-          max-h-[90vh] flex flex-col
+          max-h-[92vh] flex flex-col
         `}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#3d2a1a]/60">
-          <h3 className="font-serif text-lg text-cream">{title}</h3>
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#3d2a1a]/60">
+          <h3 className="font-serif text-base sm:text-lg text-cream">{title}</h3>
           <button
             onClick={onClose}
             className="w-8 h-8 rounded-lg flex items-center justify-center text-[#a89278] hover:text-cream hover:bg-[#3d2a1a]/50 transition-colors"
@@ -71,7 +71,7 @@ export default function AdminModal({ open, onClose, title, children, size = "md"
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-6 py-5 admin-scrollbar">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-5 admin-scrollbar">
           {children}
         </div>
       </div>

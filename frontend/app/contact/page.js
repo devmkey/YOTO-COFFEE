@@ -23,14 +23,14 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="px-6 py-16">
+    <section className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-4xl mx-auto">
         <span className="text-xs uppercase tracking-[2px] text-terracotta font-semibold block mb-2">
           Get in touch
         </span>
-        <h2 className="text-2xl md:text-3xl mb-8">Come say hello</h2>
+        <h2 className="text-2xl md:text-3xl mb-6 sm:mb-8">Come say hello</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <Card icon={<PinIcon className="w-6 h-6" />} title="Location">
               2V63+547 LK/Safari, Addis Ababa<br />Bole area
@@ -40,7 +40,7 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-coffee border border-coffeeMid rounded-xl p-6 space-y-4">
+          <form onSubmit={handleSubmit} className="bg-coffee border border-coffeeMid rounded-xl p-4 sm:p-6 space-y-4">
             <div>
               <label className="text-sm font-semibold text-cream block mb-1.5">Name</label>
               <input
@@ -91,7 +91,7 @@ export default function ContactPage() {
           </form>
         </div>
 
-        <div className="mt-10 rounded-xl overflow-hidden border border-coffeeMid h-64 md:h-80">
+        <div className="mt-8 sm:mt-10 rounded-xl overflow-hidden border border-coffeeMid h-52 sm:h-64 md:h-80">
           <a
             href="https://www.openstreetmap.org/?mlat=9.018&mlon=38.753#map=16/9.018/38.753"
             target="_blank"

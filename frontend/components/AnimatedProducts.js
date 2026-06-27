@@ -67,14 +67,14 @@ export default function AnimatedProducts() {
   );
 
   return (
-    <section ref={sectionRef} className="px-6 py-16">
+    <section ref={sectionRef} className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-6xl mx-auto">
         <div
           ref={headingRef}
-          className="flex items-baseline justify-between mb-8 flex-wrap gap-2"
+          className="flex items-start sm:items-baseline justify-between mb-6 sm:mb-8 flex-col sm:flex-row gap-2 sm:gap-4"
         >
           <div>
-            <span className="section-subtitle text-xs uppercase tracking-[2px] text-terracotta font-semibold block mb-2">
+            <span className="section-subtitle text-xs uppercase tracking-[2px] text-terracotta font-semibold block mb-1 sm:mb-2">
               Fan favourites
             </span>
             <h2 className="section-title text-2xl md:text-3xl">
@@ -83,12 +83,12 @@ export default function AnimatedProducts() {
           </div>
           <Link
             href="/menu"
-            className="section-link text-sm font-semibold text-terracotta"
+            className="section-link text-sm font-semibold text-terracotta hover:underline"
           >
             See full menu →
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {products.map((p) => (
             <div key={p.id} className="product-card-animated" style={{ perspective: "1000px" }}>
               <ProductCard product={p} />

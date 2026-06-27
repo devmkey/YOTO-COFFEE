@@ -13,18 +13,18 @@ const PHOTOS = [
 
 export default function GalleryPage() {
   return (
-    <section className="px-6 py-16">
+    <section className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-6xl mx-auto">
         <span className="text-xs uppercase tracking-[2px] text-terracotta font-semibold block mb-2">
           Inside yoto
         </span>
-        <h2 className="text-2xl md:text-3xl mb-8">A look around the house</h2>
+        <h2 className="text-2xl md:text-3xl mb-6 sm:mb-8">A look around the house</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {PHOTOS.map((photo) => (
             <div
               key={photo.src}
-              className="relative h-64 rounded-2xl overflow-hidden border border-coffeeMid"
+              className="relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-coffeeMid"
             >
               <Image
                 src={photo.src}
