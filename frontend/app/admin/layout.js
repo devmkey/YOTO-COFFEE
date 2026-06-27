@@ -11,8 +11,12 @@ export default function AdminLayout({ children }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   useEffect(() => {
-    if (!loading && (!user || !token)) {
-      router.push("/login");
+    if (!loading) {
+      if (!user || !token) {
+        router.push("/login");
+      } else if (user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+        router.push("/");
+      }
     }
   }, [user, token, loading, router]);
 

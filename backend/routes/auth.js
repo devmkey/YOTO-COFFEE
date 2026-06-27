@@ -11,6 +11,43 @@ pool.query("SELECT 1").catch(() => { dbUp = false; });
 
 const memoryUsers = [];
 
+// ── Seed admin user on startup ──────────────────────────
+const ADMIN_NAME = process.env.ADMIN_NAME || "Admin";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@yoto.com";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "12345678";
+
+async function seedAdmin() {
+  const hashed = await bcrypt.hash(ADMIN_PASSWORD, 10);
+
+  if (dbUp) {
+    try {
+      const existing = await pool.query("SELECT id FROM users WHERE email = $1", [ADMIN_EMAIL]);
+      if (existing.rows.length === 0) {
+        await pool.query(
+          "INSERT INTO users (name, email, password) VALUES ($1, $2, $3)",
+          [ADMIN_NAME, ADMIN_EMAIL, hashed]
+        );
+        console.log("✅ Admin user seeded in database");
+      } else {
+        // Update password to match env var
+        await pool.query("UPDATE users SET password = $1 WHERE email = $2", [hashed, ADMIN_EMAIL]);
+        console.log("✅ Admin user password updated in database");
+      }
+    } catch (err) {
+      console.error("⚠️  Failed to seed admin in DB, falling back to in-memory:", err.message);
+      dbUp = false;
+      memoryUsers.push({ id: 1, name: ADMIN_NAME, email: ADMIN_EMAIL, password: hashed });
+      console.log("✅ Admin user seeded in-memory");
+    }
+  } else {
+    memoryUsers.push({ id: 1, name: ADMIN_NAME, email: ADMIN_EMAIL, password: hashed });
+    console.log("✅ Admin user seeded in-memory");
+  }
+}
+
+// Run seed after a short delay to let the DB check complete
+setTimeout(seedAdmin, 1000);
+
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
