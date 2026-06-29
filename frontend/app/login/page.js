@@ -8,7 +8,7 @@ import { useAuth } from "../../lib/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login, register } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,8 +24,7 @@ export default function LoginPage() {
       if (mode === "login") {
         await login(email, password);
       } else {
-        const { register } = await import("../../lib/api");
-        await register({ name, email, password });
+        await register(name, email, password);
       }
       router.push("/");
     } catch (err) {
