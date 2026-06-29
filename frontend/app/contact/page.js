@@ -33,7 +33,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           <div className="space-y-4">
             <Card icon={<PinIcon className="w-6 h-6" />} title="Location">
-              2V63+547 LK/Safari, Addis Ababa<br />Bole area
+              2V63+547 LK/Safari, Addis Ababa<br />
             </Card>
             <Card icon={<ClockIcon className="w-6 h-6" />} title="Opening hours">
               Mon–Fri 7:00–19:00<br />Sat–Sun 8:00–18:00
@@ -92,30 +92,16 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-8 sm:mt-10 rounded-xl overflow-hidden border border-coffeeMid h-52 sm:h-64 md:h-80">
-          <a
-            href="https://www.openstreetmap.org/?mlat=9.018&mlon=38.753#map=16/9.018/38.753"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full h-full bg-coffee relative group"
-          >
-            <div className="absolute inset-0 bg-coffeeDark/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
-              <span className="text-cream font-semibold text-sm bg-coffeeDark/80 px-4 py-2 rounded-lg">
-                Open in OpenStreetMap →
-              </span>
-            </div>
-            <img
-              src={`https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=800&height=400&center=lonlat:38.753,9.018&zoom=15&marker=lonlat:38.753,9.018;color:%23c1440e;size:medium&apiKey=YOUR_API_KEY`}
-              alt="Map showing Yoto Coffee location in Bole, Addis Ababa"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.style.display = "none";
-                e.target.nextSibling.style.display = "flex";
-              }}
-            />
-            <div className="hidden w-full h-full items-center justify-center bg-coffee text-tan text-sm p-4 text-center">
-              Map unavailable — click to view on OpenStreetMap
-            </div>
-          </a>
+          <iframe
+            title="Google Map location"
+            src="https://maps.google.com/maps?q=9.018,38.753&z=15&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </section>
