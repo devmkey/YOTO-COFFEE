@@ -9,6 +9,7 @@ import { useAuth } from "../../lib/AuthContext";
 export default function LoginPage() {
   const router = useRouter();
   const { login } = useAuth();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,7 +25,7 @@ export default function LoginPage() {
         await login(email, password);
       } else {
         const { register } = await import("../../lib/api");
-        await register("Guest", email, password);
+        await register({ name, email, password });
       }
       router.push("/");
     } catch (err) {
@@ -47,6 +48,20 @@ export default function LoginPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          {mode === "register" && (
+            <div>
+              <label className="text-sm font-semibold text-cream block mb-1.5">Name</label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required={mode === "register"}
+                className="w-full border border-coffeeMid bg-coffeeDark text-cream rounded-lg px-3 
+                py-2.5 text-sm focus:outline-none focus:border-terracotta placeholder-textMuted"
+              />
+            </div>
+          )}
           <div>
             <label className="text-sm font-semibold text-cream block mb-1.5">Email</label>
             <input
@@ -55,7 +70,8 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border border-coffeeMid bg-coffeeDark text-cream rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-terracotta placeholder-textMuted"
+              className="w-full border border-coffeeMid bg-coffeeDark text-cream rounded-lg px-3 
+              py-2.5 text-sm focus:outline-none focus:border-terracotta placeholder-textMuted"
             />
           </div>
           <div>
@@ -67,7 +83,8 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full border border-coffeeMid bg-coffeeDark text-cream rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-terracotta placeholder-textMuted"
+              className="w-full border border-coffeeMid bg-coffeeDark text-cream rounded-lg 
+              px-3 py-2.5 text-sm focus:outline-none focus:border-terracotta placeholder-textMuted"
             />
           </div>
           {error && <p className="text-red-400 text-sm">{error}</p>}
