@@ -94,7 +94,7 @@ export default function ContactPage() {
         <div className="mt-8 sm:mt-10 rounded-xl overflow-hidden border border-coffeeMid h-52 sm:h-64 md:h-80">
           <iframe
             title="Google Map location"
-            src="https://maps.google.com/maps?q=Feyel+Bet+Square,+Addis+Ababa&z=16&output=embed"
+            src="https://maps.google.com/maps?q=YOTO+Coffee,+2V63%2B547,+Addis+Ababa,+Ethiopia&z=17&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
