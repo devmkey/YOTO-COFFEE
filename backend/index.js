@@ -7,6 +7,7 @@ const rateLimit = require("express-rate-limit");
 const productsRouter = require("./routes/products");
 const contactRouter = require("./routes/contact");
 const authRouter = require("./routes/auth");
+const userRouter = require("./routes/user");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -67,6 +68,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/products", productsRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 // ── 404 ─────────────────────────────────────────────────
 app.use((req, res) => {

@@ -51,6 +51,32 @@ export async function login({ email, password }) {
   return res.json();
 }
 
+// ── User Profile ────────────────────────────────────────
+
+export async function getProfile(token) {
+  const res = await fetch(`${API_BASE}/user/profile`, {
+    headers: authHeaders(token),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Failed to fetch profile");
+  }
+  return res.json();
+}
+
+export async function updateProfile(data, token) {
+  const res = await fetch(`${API_BASE}/user/profile`, {
+    method: "PUT",
+    headers: authHeaders(token),
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Failed to update profile");
+  }
+  return res.json();
+}
+
 // ── Admin: Products / Coffee ─────────────────────────────
 
 export async function createProduct(data, token) {
