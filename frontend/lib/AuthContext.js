@@ -46,12 +46,16 @@ export function AuthProvider({ children }) {
     return data;
   }
 
+  function updateUserState(userData) {
+    saveAuth(userData, token);
+  }
+
   function logout() {
     clearAuth();
   }
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login: loginUser, register: registerUser, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login: loginUser, register: registerUser, logout, updateUserState }}>
       {children}
     </AuthContext.Provider>
   );

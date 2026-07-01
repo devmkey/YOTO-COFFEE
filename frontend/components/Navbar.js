@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu";
+import { useAuth } from "../lib/AuthContext";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -13,6 +14,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     function onScroll() {
@@ -49,12 +51,29 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/login"
-            className="text-sm font-semibold border border-tan text-cream rounded-lg px-4 py-2 hover:bg-tan hover:text-coffeeDark transition"
-          >
-            Log in
-          </Link>
+          {user ? (
+            <>
+              <Link
+                href="/account"
+                className="text-sm font-medium text-tan hover:text-terracotta"
+              >
+                Account
+              </Link>
+              <button
+                onClick={logout}
+                className="text-sm font-semibold border border-tan text-cream rounded-lg px-4 py-2 hover:bg-tan hover:text-coffeeDark transition"
+              >
+                Log out
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/login"
+              className="text-sm font-semibold border border-tan text-cream rounded-lg px-4 py-2 hover:bg-tan hover:text-coffeeDark transition"
+            >
+              Log in
+            </Link>
+          )}
         </div>
 
         <MobileMenu links={NAV_LINKS} />
