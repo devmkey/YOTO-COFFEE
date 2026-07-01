@@ -21,7 +21,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://yoto-coffee.onrender.com wss://yoto-coffee.onrender.com https://api.mildos.page wss://api.mildos.page http://localhost:4000 ws://localhost:4000 http://localhost:5000 ws://localhost:5000 https://vercel.live wss://vercel.live https://*.vercel.live wss://*.vercel.live; frame-src 'self' https://vercel.live https://*.vercel.live https://www.google.com https://maps.google.com; object-src 'none';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://yoto-coffee.onrender.com wss://yoto-coffee.onrender.com http://localhost:4000 ws://localhost:4000 http://localhost:5000 ws://localhost:5000 https://vercel.live wss://vercel.live https://*.vercel.live wss://*.vercel.live; frame-src 'self' https://vercel.live https://*.vercel.live https://www.google.com https://maps.google.com; object-src 'none';"
         }
       ]
     }
